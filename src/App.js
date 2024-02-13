@@ -5,11 +5,14 @@ import Layout from './components/Layout';
 import {Routes, Route} from 'react-router-dom';
 import Home from './components/home/Home';
 import Header from './components/header/Header';
+import Trailer from './components/trailer/Trailer';
+
 
 function App() {
 
   const [movies, setMovies] =useState();
-  
+  const [movie, setMovie] = useState();
+  const [reviews, setReviews] = useState([]);
   const getMovies = async () => {
 
     try
@@ -18,7 +21,7 @@ function App() {
       const response = await api.get("/api/v1/movies");
 
       setMovies(response.data);
-      console.log(response.data);
+   
 
     } 
     catch(err)
@@ -26,7 +29,8 @@ function App() {
       console.log(err);
     }
   }
-
+  
+  
 useEffect(() => {
   getMovies();
 },[])
@@ -37,8 +41,7 @@ useEffect(() => {
       <Routes>
         <Route path = "/" element={<Layout/>}>
         <Route path = "/" element={<Home movies = {movies} />}></Route>
-
-        </Route>
+        <Route path="/Trailer/:ytTrailerId" element={<Trailer/>} /></Route>
       </Routes>
     </div>
   );
