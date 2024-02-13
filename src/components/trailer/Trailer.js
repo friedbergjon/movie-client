@@ -5,40 +5,40 @@ import './Trailer.css';
 
 const Trailer = () => {
     let params = useParams();
-    console.log("Params:", params);
+    console.log(params);
+}
+//     // Assume you have some function to fetch content details based on contentId
+//     // For demonstration purposes, let's assume it's a simple array of content objects
+//     const content = [
+//         { id: 'abc123', type: 'trailer', trailerLink: 'https://www.youtube.com/watch?v=abc123' },
+//         { id: 'def456', type: 'otherType', /* other content details */ }
+//     ];
 
-    // Assume you have some function to fetch content details based on contentId
-    // For demonstration purposes, let's assume it's a simple array of content objects
-    const content = [
-        { id: 'abc123', type: 'trailer', trailerLink: 'https://www.youtube.com/watch?v=abc123' },
-        { id: 'def456', type: 'otherType', /* other content details */ }
-    ];
+//     // Find the content object with the matching contentId
+//     const selectedContent = content.find(item => item.id === params.contentId);
 
-    // Find the content object with the matching contentId
-    const selectedContent = content.find(item => item.id === params.contentId);
+//     if (!selectedContent) {
+//         return <div>Content not found</div>;
+//     }
 
-    if (!selectedContent) {
-        return <div>Content not found</div>;
-    }
-
-    // Assume different rendering based on content type
-    if (selectedContent.type === 'trailer') {
-        return (
-            <div className="react-player-container">
-                <ReactPlayer
-                    controls={true}
-                    playing={true}
-                    url={selectedContent.trailerLink}
-                    width="100%"
-                    height="100%"
-                />
-            </div>
-        );
-    } else {
-        // Render other types of content here
-        return <div>Render other types of content</div>;
-    }
-};
+//     // Assume different rendering based on content type
+//     if (selectedContent.type === 'trailer') {
+//         return (
+//             <div className="react-player-container">
+//                 <ReactPlayer
+//                     controls={true}
+//                     playing={true}
+//                     url={selectedContent.trailerLink}
+//                     width="100%"
+//                     height="100%"
+//                 />
+//             </div>
+//         );
+//     } else {
+//         // Render other types of content here
+//         return <div>Render other types of content</div>;
+//     }
+// };
 
 export default Trailer;
 
